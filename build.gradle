@@ -1,4 +1,4 @@
-group 'uk.co.agilekatas'
+group 'uk.co.bty'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -52,10 +52,10 @@ task integrationTest(type: Test) {
             classpath = configurations.integrationTestRuntime +
                     sourceSets.main.output +
                     sourceSets.integrationTest.output
-            args = ['--plugin', "html:${Reporting.baseDir}/${name}",
-                    '--plugin', "junit:${Reporting.baseDir}/${name}/junit.xml",
+            args = ['--plugin', "html:${buildDir}/reports/${name}",
+                    '--plugin', "junit:${buildDir}/reports/${name}/junit.xml",
                     '--plugin', 'pretty',
-                    '--glue', 'uk.co.agilekatas.katas', 'src/integrationTest/resources']
+                    '--glue', 'uk.co.bty', 'src/integrationTest/resources']
         }
     }
     testClassesDir = sourceSets.integrationTest.output.classesDir
